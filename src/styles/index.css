@@ -1,0 +1,287 @@
+:root {
+  --color-bg: #fffbf0;
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ffe66d;
+  --color-text: #2b2d42;
+  --color-text-light: #8d99ae;
+  --font-main: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3D Canvas fixed background */
+.canvas-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Sections */
+.section-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--color-text-light);
+  text-align: center;
+  max-width: 600px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.problem-text {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.solution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.solution-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.solution-icon {
+  color: var(--color-secondary);
+}
+
+.contact-card {
+  background: var(--color-text);
+  color: white;
+  padding: 4rem;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-title {
+  font-size: 3rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.contact-info {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-button {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+.bold-highlight {
+  color: var(--color-primary);
+}
+
+.secondary-highlight {
+  color: var(--color-secondary);
+}
+
+/* --- Added for Parallax Images --- */
+.parallax-scene {
+  position: relative;
+  width: 100vw;
+  height: 200vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  margin: 5rem 0;
+  border-radius: 40px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140%; /* Needed for negative scrolling range */
+  will-change: transform;
+}
+
+.bg-layer {
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+  z-index: 1;
+}
+
+.mg-layer {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-img {
+  position: absolute;
+  width: 320px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 4px solid rgba(255,255,255,0.1);
+  will-change: transform;
+}
+
+/* Default Desktop Placements */
+.floating-img-1 { top: 5%; left: 8%; transform: rotate(-3deg); }
+.floating-img-2 { top: 18%; right: 8%; transform: rotate(4deg); }
+.floating-img-3 { top: 38%; left: 12%; transform: rotate(-5deg); }
+.floating-img-4 { top: 55%; right: 10%; transform: rotate(2deg); }
+.floating-img-5 { top: 72%; left: 8%; transform: rotate(-4deg); }
+.floating-img-6 { top: 88%; right: 12%; transform: rotate(5deg); }
+
+.fg-layer {
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  pointer-events: none;
+}
+
+.parallax-text-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 4rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-top: -30vh;
+  pointer-events: auto;
+}
+
+.parallax-text {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* Mobile Placements */
+@media (max-width: 768px) {
+  .parallax-scene { height: 280vh; border-radius: 20px; }
+  .parallax-text-container { margin-top: -10vh; padding: 2.5rem; }
+  
+  .floating-img {
+    width: 65vw;
+    height: 85vw;
+    left: 50% !important;
+    right: auto !important;
+  }
+  
+  .floating-img-1 { top: 3%; transform: translateX(-60%) rotate(-3deg); }
+  .floating-img-2 { top: 18%; transform: translateX(-40%) rotate(4deg); }
+  .floating-img-3 { top: 35%; transform: translateX(-65%) rotate(-5deg); }
+  .floating-img-4 { top: 52%; transform: translateX(-35%) rotate(2deg); }
+  .floating-img-5 { top: 70%; transform: translateX(-60%) rotate(-4deg); }
+  .floating-img-6 { top: 86%; transform: translateX(-45%) rotate(5deg); }
+}
+
+/* --- WhatsApp Icon --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 65px;
+  height: 65px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.3), inset -2px -4px 6px rgba(0,0,0,0.2), inset 2px 4px 6px rgba(255,255,255,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 4px 12px 20px rgba(0,0,0,0.4), inset -2px -4px 6px rgba(0,0,0,0.2), inset 2px 4px 6px rgba(255,255,255,0.4);
+}
