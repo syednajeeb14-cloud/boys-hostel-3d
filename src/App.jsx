@@ -7,7 +7,7 @@ import ProblemSection from './components/ProblemSection';
 import ImageParallaxSection from './components/ImageParallaxSection';
 import SolutionSection from './components/SolutionSection';
 import DetailsSection from './components/DetailsSection';
-import WhatsAppIcon from './components/WhatsAppIcon';
+import VoiceAgentButton from './components/VoiceAgentButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +51,7 @@ function App() {
       <ImageParallaxSection />
       <SolutionSection />
       <DetailsSection />
-      <WhatsAppIcon />
+      <VoiceAgentButton />
     </div>
   );
 }
